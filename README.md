@@ -1,0 +1,1 @@
+# Django_QR_Code_Menu_Generator_for_Restaurants
