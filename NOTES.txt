@@ -1,0 +1,30 @@
+
+#!Need of QR Code Menu for Restaurants:
+1. Unique QR code for any restaurant's menu.
+2. Reduce the wait time for customers.
+3. Helps reduce paper waste.
+4. Hygienic as customers can scan the QR code to view the menu rather than touch the menu.
+
+#! Project Needs:
+1. .env file (python-decouple)
+2. Database - PostgreSQL (check settings.py)
+3. Pillow and qrcode (check requirements.txt)
+4. restaurant name and google drive link for menu (https://drive.google.com/file/d/1aewCRp1hJDXPm-xyy-llZUqE6gZuzYyH/view?usp=sharing)
+5. Gunicorn as WSGI server for deployment
+
+#! Commands:
+1. python3 -m venv venv
+2. source venv/bin/activate
+3. pip install -r requirements.txt
+4. python3 manage.py migrate
+5. python3 manage.py createsuperuser
+6. python3 manage.py collectstatic
+7. python3 manage.py runserver or gunicorn django_qr_project.wsgi:application
+8. python3 manage.py setup_project_and_run
+
+#! Issue and Solution:
+Issue: PostgreSQL on Render offers free hosting for 30 days. After that, you can choose a paid plan. 
+Solution: After 30 days, run the project locally to check if it works.
+
+Issue: Render does not allow to run pre-deployment commands in free plan.
+Solution: Create a custom command and list down all the commands you want to run before deployment and then the command to run the WSGI server. (Refer my setup_project_and_run.py) 
