@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}QR Menu Generator{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col text-center">
+        <div class="card result-card animate__animated animate__fadeInUp">
+            <div class="card-body p-3"> 
+                <h3 class="mb-3">{{ res_name }}</h3> 
+                <div class="qr-container mb-3">
+                    <img src="{{ qr_url }}" alt="QR Code" class="img-fluid qr-image shadow" 
+                         style="max-width: 250px;"> 
+                </div>
+                
+                <div class="d-grid gap-2"> 
+                    <a href="{{ qr_url }}" download="{{ file_name }}" 
+                       class="btn btn-primary py-2"> 
+                        <i class="fas fa-download me-2"></i>Download QR Code
+                    </a>
+                    <a href="{% url 'generate_qrcode' %}" class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-undo me-2"></i>Create Another QR
+                    </a>
+                </div>
+                
+                <div class="mt-3 text-muted"> 
+                    <small>
+                        <i class="fas fa-info-circle me-2"></i>
+                        Thank you for using QR Menu Generator
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
